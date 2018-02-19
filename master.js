@@ -12,10 +12,20 @@ function onVidyoClientLoaded(status) {
 			userData:""
 
 		}).then(function (vc) {
-			vidyoConnector.Connect({
+			console.log("Create success");
+			vidyoConnector = vc;
+		}).catch(function(error) {
+
+		});
+	}
+}
+
+
+	function joinCall(){
+		vidyoConnector.Connect({
 			host:"prod.vidyo.io",
-			token:"cHJvdmlzaW9uAEtldmluQDdhNWU2My52aWR5by5pbwA2MzY4NjIzNDgwNwAAMTMwMGJhMDgwZGZmOGZjOTA5OWQyNTE5YTc3ZWE0YjRhMmNiYTgwYTU0N2Q3NTcyNmEzOTA3ZmVhNmIyMjg3ZjViOGQ0ODE1MjE3ZTVjYTlhYWEzNDg0NmQ2ZTVmNGIz",
-			displayName:"Kevin",
+			token:"cHJvdmlzaW9uAEtldmluQDdhNWU2My52aWR5by5pbwA2MzY4NjIzODQxMAAAZmUzMTMzZDI2OTM4ZGJmMzA0ZmJhNzJiNTg3ZmUyZTNlYTQ2MDI4YTQzZTM4ZTc2ODkxYmZjN2M1YTc4YjllNTBmNGU1ODhhYWE4N2Q0NmVmNGY2N2E0MWQ5ZTkzM2U4",
+			displayName:"KevinDawg",
 			resourceId:"Room 1",
 			onSuccess: function(){
 				console.log("You did it!")
@@ -27,15 +37,4 @@ function onVidyoClientLoaded(status) {
 				console.log("Disconnected - " + reason)
 			}
 		});
-		}).catch(function(error) {
-
-		});
 	}
-	status.downloadType;                       // Available download types with possible values of "MOBILE" "PLUGIN" "APP"
-    status.downloadPathApp;                    // Path to the application installer for the app which could be invoked with a protocol handler
-    status.downloadPathPlugIn;                 // Path to the Plugin that can be installed
-    status.downloadPathWebRTCExtensionChrome;  // Path to the optional Chrome extension required for Screen Sharing in WebRTC
-    status.downloadPathWebRTCExtensionFirefox;
-    return true;
-}
-
